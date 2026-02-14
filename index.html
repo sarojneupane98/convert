@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nepali Converter Pro | Unicode & Preeti</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>नेपाली Converter Pro</h1>
+            <p>Phonetic Voice Typing • Unicode • Preeti Preview</p>
+        </header>
+
+        <main class="grid-layout">
+            <div class="card">
+                <div class="card-header">
+                    <span>1. Typing & Voice Zone</span>
+                    <button id="mic-btn" class="mic-btn">🎤 Start Voice Typing</button>
+                </div>
+                <textarea id="roman-input" placeholder="Type phonetically (e.g. namaste) or speak..."></textarea>
+                <div id="voice-status" class="status-inactive">Microphone is off</div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">2. Unicode (Web/Mobile)</div>
+                <textarea id="unicode-output" placeholder="Paste Nepali Unicode here..."></textarea>
+                <div class="button-group">
+                    <button id="convert-to-preeti-btn" class="btn btn-green">Convert to Preeti ↓</button>
+                    <button id="copy-unicode" class="btn btn-blue">Copy Unicode</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span>3. Preeti Preview</span>
+                    <div class="toggle-container">
+                        <input type="checkbox" id="font-toggle" checked>
+                        <label for="font-toggle">Live Preview</label>
+                    </div>
+                </div>
+                <textarea id="preeti-output" class="preeti-font" readonly placeholder="gd;t] m"></textarea>
+                <button id="copy-preeti" class="btn btn-orange">Copy for Preeti Font</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>Note: To use Preeti output, paste into MS Word and select <b>'Preeti'</b> font.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
