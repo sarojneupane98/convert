@@ -1,7 +1,7 @@
 /* Import Preeti Font - Ensure Preeti.ttf is in the same folder */
 @font-face {
     font-family: 'PreetiCustom';
-    src: url('Preeti.ttf') format('truetype');
+    src: url('preeti.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
