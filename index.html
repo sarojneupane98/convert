@@ -3,53 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nepali Converter Pro | Unicode & Preeti</title>
+    <meta name="description" content="Professional Nepali Transliteration, Unicode and Preeti Font Converter tool.">
+    <title>Nepali Converter Pro | Unicode & Preeti Engine</title>
+
+    <!-- Font & Stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://nepalifonts.net/css/preeti.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="app-container">
-        <header>
+        <header class="app-header">
             <h1>नेपाली Converter Pro</h1>
-            <p>Phonetic Voice Typing • Unicode • Preeti Preview</p>
+            <p>Phonetic Transliteration • Voice Typing • Unicode & Preeti Engine</p>
         </header>
 
         <main class="grid-layout">
-            <div class="card">
+            <!-- Panel 1: Phonetic Input -->
+            <section class="card">
                 <div class="card-header">
                     <span>1. Typing & Voice Zone</span>
-                    <button id="mic-btn" class="mic-btn">🎤 Start Voice Typing</button>
+                    <button id="mic-btn" class="mic-btn" type="button" aria-label="Toggle Voice Typing">
+                        <span class="mic-icon">🎤</span> <span id="mic-label">Start Voice Typing</span>
+                    </button>
                 </div>
-                <textarea id="roman-input" placeholder="Type phonetically (e.g. namaste) or speak..."></textarea>
-                <div id="voice-status" class="status-inactive">Microphone is off</div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">2. Unicode (Web/Mobile)</div>
-                <textarea id="unicode-output" placeholder="Paste Nepali Unicode here..."></textarea>
-                <div class="button-group">
-                    <button id="convert-to-preeti-btn" class="btn btn-green">Convert to Preeti ↓</button>
-                    <button id="copy-unicode" class="btn btn-blue">Copy Unicode</button>
+                <div class="textarea-wrapper">
+                    <textarea id="roman-input" placeholder="Type phonetically in Romanized Nepali (e.g., 'namaste', 'mero desh')..."></textarea>
                 </div>
-            </div>
+                <div id="voice-status" class="status-indicator status-inactive">Microphone is off</div>
+            </section>
 
-            <div class="card">
+            <!-- Panel 2: Unicode Output -->
+            <section class="card">
                 <div class="card-header">
-                    <span>3. Preeti Preview</span>
+                    <span>2. Unicode (Web / Mobile)</span>
+                    <button id="clear-all-btn" class="btn-text" type="button">Clear All</button>
+                </div>
+                <div class="textarea-wrapper">
+                    <textarea id="unicode-output" placeholder="Nepali Unicode output will appear here..."></textarea>
+                </div>
+                <div class="button-group">
+                    <button id="convert-to-preeti-btn" class="btn btn-primary" type="button">Convert to Preeti ↓</button>
+                    <button id="copy-unicode" class="btn btn-secondary" type="button">Copy Unicode</button>
+                </div>
+            </section>
+
+            <!-- Panel 3: Preeti Preview -->
+            <section class="card">
+                <div class="card-header">
+                    <span>3. Preeti ASCII Preview</span>
                     <div class="toggle-container">
                         <input type="checkbox" id="font-toggle" checked>
-                        <label for="font-toggle">Live Preview</label>
+                        <label for="font-toggle">Preeti Font Styling</label>
                     </div>
                 </div>
-                <textarea id="preeti-output" class="preeti-font" readonly placeholder="gd:t]"></textarea>
-                <button id="copy-preeti" class="btn btn-orange">Copy for Preeti Font</button>
-            </div>
+                <div class="textarea-wrapper">
+                    <textarea id="preeti-output" class="preeti-font" readonly placeholder="gd:t]"></textarea>
+                </div>
+                <div class="button-group">
+                    <button id="copy-preeti" class="btn btn-accent" type="button">Copy for Preeti Font</button>
+                </div>
+            </section>
         </main>
 
-        <footer>
-            <p>Note: To use Preeti output, paste into MS Word and select <b>'Preeti'</b> font.</p>
+        <footer class="app-footer">
+            <p>Note: To display Preeti output correctly in external software (e.g., MS Word), paste the text and set your document font to <strong>'Preeti'</strong>.</p>
         </footer>
     </div>
+
+    <!-- Main JavaScript Engine -->
     <script src="script.js"></script>
 </body>
 </html>
