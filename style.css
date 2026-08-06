@@ -1,110 +1,226 @@
-/* Import Preeti Font - Ensure Preeti.ttf is in the same folder */
-@font-face {
-    font-family: 'PreetiCustom';
-    src: url('preeti.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-:root {
-    --glass: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.3);
-    --primary: #4361ee;
-    --secondary: #f72585;
-    --success: #06d6a0;
-    --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-}
-
-* { box-sizing: border-box; transition: all 0.2s ease; }
-
-body { 
-    font-family: 'Poppins', sans-serif; 
-    background: var(--bg-gradient); 
-    min-height: 100vh;
-    padding: 30px 15px; 
-    color: #2b2d42;
+/* Reset & Global Base */
+* {
+    box-sizing: border-box;
     margin: 0;
+    padding: 0;
 }
 
-.app-container { max-width: 1300px; margin: 0 auto; }
-
-header { text-align: center; margin-bottom: 40px; }
-header h1 { font-size: 2.8rem; color: var(--primary); margin: 0; font-weight: 800; }
-header p { color: #5c677d; margin-top: 5px; }
-
-.grid-layout { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-    gap: 25px; 
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #f1f5f9;
+    color: #0f172a;
+    min-height: 100vh;
+    padding: 2rem 1rem;
 }
 
-/* Glassmorphism Effect */
-.card { 
-    background: var(--glass); 
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    padding: 25px; 
-    border-radius: 24px; 
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+/* Application Wrapper */
+.app-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* Header */
+.app-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.app-header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.25rem;
+    color: #2563eb;
+    margin-bottom: 0.5rem;
+}
+
+.app-header p {
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+/* Grid Layout */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Cards */
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
-.card-header { 
-    display: flex; justify-content: space-between; align-items: center;
-    font-weight: 700; margin-bottom: 15px; color: #4a4e69;
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
 }
 
-textarea { 
-    width: 100%; height: 280px; border: 1px solid rgba(0,0,0,0.08); 
-    border-radius: 15px; padding: 18px; font-size: 1.2rem; 
-    background: rgba(255,255,255,0.6); resize: none; outline: none;
+/* Textareas */
+.textarea-wrapper {
+    flex-grow: 1;
+    margin-bottom: 1rem;
 }
 
-textarea:focus { 
-    background: #fff; 
-    border-color: var(--primary);
-    box-shadow: 0 0 15px rgba(67, 97, 238, 0.15);
+textarea {
+    width: 100%;
+    height: 220px;
+    padding: 0.85rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    resize: vertical;
+    font-size: 1rem;
+    line-height: 1.5;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-/* Preeti Font Specifics */
+textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Preeti Font Specific Class */
 .preeti-font {
-    font-family: 'PreetiCustom', Arial, sans-serif !important;
-    font-size: 2rem !important;
-    line-height: 1.2;
+    font-family: 'Preeti', 'PreetiCustom', sans-serif !important;
+    font-size: 1.75rem !important;
+    line-height: 1.4;
+    letter-spacing: 0px;
 }
 
-.button-group { display: flex; gap: 10px; margin-top: 10px; }
-
-.btn { 
-    width: 100%; margin-top: 10px; padding: 14px; border: none; 
-    border-radius: 12px; color: white; font-weight: 700; cursor: pointer;
+/* Fallback local font definition */
+@font-face {
+    font-family: 'PreetiCustom';
+    src: local('Preeti'), url('./preeti.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
-.btn-blue { background: var(--primary); }
-.btn-orange { background: var(--secondary); }
-.btn-green { background: var(--success); }
-.btn:hover { filter: brightness(1.1); transform: translateY(-2px); }
+/* Buttons & Controls */
+.button-group {
+    display: flex;
+    gap: 0.75rem;
+}
 
-/* Mic UI */
+.btn {
+    flex: 1;
+    padding: 0.65rem 1rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-primary {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+}
+
+.btn-secondary {
+    background-color: #475569;
+    color: #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: #334155;
+}
+
+.btn-accent {
+    background-color: #d97706;
+    color: #ffffff;
+}
+
+.btn-accent:hover {
+    background-color: #b45309;
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    color: #64748b;
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.btn-text:hover {
+    color: #0f172a;
+}
+
+/* Voice Typing Controls */
 .mic-btn {
-    background: #ff4d6d; color: white; border: none; padding: 8px 16px;
-    border-radius: 50px; cursor: pointer; font-weight: 700;
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
 }
 
 .mic-btn.recording {
-    background: #38b000;
+    background-color: #dc2626;
     animation: pulse 1.5s infinite;
 }
 
 @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(56, 176, 0, 0.7); }
-    70% { box-shadow: 0 0 0 12px rgba(56, 176, 0, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(56, 176, 0, 0); }
+    0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
 }
 
-.toggle-container { display: flex; align-items: center; gap: 5px; font-size: 0.8rem; }
-.status-active { color: #38b000; font-size: 0.85rem; margin-top: 8px; font-weight: bold; text-align: center;}
-.status-inactive { color: #94a3b8; font-size: 0.85rem; margin-top: 8px; text-align: center;}
-footer { text-align: center; margin-top: 40px; color: #64748b; font-size: 0.9rem; }
+.status-indicator {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.status-inactive {
+    color: #94a3b8;
+}
+
+.status-active {
+    color: #16a34a;
+    font-weight: 600;
+}
+
+/* Toggle Checkbox Container */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+/* Footer */
+.app-footer {
+    text-align: center;
+    margin-top: 2rem;
+    color: #64748b;
+    font-size: 0.85rem;
+}
