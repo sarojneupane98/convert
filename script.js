@@ -9,7 +9,7 @@ function convertUnicodeToPreeti(unicodeText) {
     let text = unicodeText;
 
     // 1. Specific Multi-character & Phrase Exceptions
-    text = text.replace(/अन्तराष्ट्रिय/g, 'cGt/fli6«o');
+    text = text.replace(/अन्तर्राष्ट्रिय/g, 'cGt/fli6«o');
     text = text.replace(/वैज्ञानिक/g, 'j}1flgs');
     text = text.replace(/कम्प्युटर/g, 'sDKo\'6/');
     text = text.replace(/प्रविधि/g, 'k|ljlw');
@@ -18,7 +18,10 @@ function convertUnicodeToPreeti(unicodeText) {
     text = text.replace(/श्रीमान्/g, '>Ldfg\\');
     text = text.replace(/श्रीमती/g, '>LdtL');
     text = text.replace(/रुपैयाँ/g, '?k}ofF');
-    text = text.replace(/राष्ट्रिय/g, '/fi6«Lo');
+    text = text.replace(/राष्ट्रिय/g, '/fli6«o');
+    text = text.replace(/राष्ट्र/g, '/fi6«');
+
+
 
     // 2. Pre-process Ligatures BEFORE Halant operations
     text = text.replace(/द\u094Dय/g, 'B');   // द्य (Fixes विद्या)
@@ -29,6 +32,8 @@ function convertUnicodeToPreeti(unicodeText) {
     text = text.replace(/श\u094Dर/g, '>');   // श्र
     text = text.replace(/क\u094Dर/g, 'qm');  // क्र
     text = text.replace(/क\u094Dष/g, 'If');  // क्ष
+    text = text.replace(/द\u094Dव/g, 'å');  // क्ष
+
 
     // 3. Special Characters (Ru, Roo, Hri)
     text = text.replace(/रु/g, '?');
@@ -55,12 +60,12 @@ function convertUnicodeToPreeti(unicodeText) {
     // Explicitly targeting Consonant + Halant (\u094D) to prevent misfires
     const halfMap = {
         'क\u094D': 'S', 'ख\u094D': 'V', 'ग\u094D': 'U', 'घ\u094D': '3', 'ङ\u094D': 'ª',
-        'च\u094D': 'R', 'छ\u094D': '5', 'ज\u094D': 'H', 'झ\u094D': 'h\\', 'ञ\u094D': '`',
+        'च\u094D': 'R', 'छ\u094D': '5', 'ज\u094D': 'H', 'झ\u094D': 'I', 'ञ\u094D': '`',
         'ट\u094D': '6', 'ठ\u094D': '7', 'ड\u094D': '8', 'ढ\u094D': '9', 'ण\u094D': '0',
         'त\u094D': 'T', 'थ\u094D': 'Y', 'द\u094D': 'b\\', 'ध\u094D': 'W', 'न\u094D': 'G',
         'प\u094D': 'K', 'फ\u094D': 'km', 'ब\u094D': 'A', 'भ\u094D': 'E', 'म\u094D': 'D',
-        'य\u094D': 'O', 'र\u094D': '!', 'ल\u094D': 'N', 'व\u094D': 'J', 'श\u094D': 'Z',
-        'ष\u094D': 'if', 'स\u094D': ':', 'ह\u094D': 'X'
+        'य\u094D': 'O', 'र\u094D': '{', 'ल\u094D': 'N', 'व\u094D': 'J', 'श\u094D': 'Z',
+        'ष\u094D': 'i', 'स\u094D': ':', 'ह\u094D': 'X'
     };
 
     for (const [key, val] of Object.entries(halfMap)) {
@@ -72,15 +77,15 @@ function convertUnicodeToPreeti(unicodeText) {
         'अ': 'c', 'आ': 'cf', 'इ': 'O', 'ई': 'O{', 'उ': 'p', 'ऊ': 'pm',
         'ऋ': 'C', 'ए': 'P', 'ऐ': 'P{', 'ओ': 'cf]', 'औ': 'cf}',
         'क': 's', 'ख': 'v', 'ग': 'u', 'घ': '3', 'ङ': 'ª',
-        'च': 'r', 'छ': '5', 'ज': 'h', 'झ': 'h+', 'ञ': '`',
-        'ट': '6', 'ठ': '7', 'ड': '8', 'ढ': '9', 'ण': '0',
+        'च': 'r', 'छ': '5', 'ज': 'h', 'झ': 'If', 'ञ': '`',
+        'ट': '6', 'ठ': '7', 'ड': '8', 'ढ': '9', 'ण': '0f',
         'त': 't', 'थ': 'y', 'द': 'b', 'ध': 'w', 'न': 'g',
         'प': 'k', 'फ': 'km', 'ब': 'a', 'भ': 'e', 'म': 'd',
         'य': 'o', 'र': '/', 'ल': 'n', 'व': 'j', 'श': 'z',
         'ष': 'if', 'स': ';', 'ह': 'x', 
         'ा': 'f','ि': 'l', 'ी': 'L', 'ु': '\'', 'ू': '"', // Fixed Vowels (' -> Raswa, m -> Dirgha)
         'ृ': '[', 'े': ']', 'ै': '}', 'ो': 'f]', 'ौ': 'f}',
-        'ं': '+', 'ः': 'M', 'ँ': 'F', '।': '.', '\u094D': '\\', 
+        'ं': '+', 'ः': 'M', 'ँ': 'F', '।': ' .', 'स्त': ':t', 'ष्ट': 'i6', 'ष्ठ': 'i7', '\u094D': '\\', 
         
         // Corrected Numbers (Maps both Nepali & English input to Preeti shifted glyphs)
         '०': ')', '१': '!', '२': '@', '३': '#', '४': '$',
