@@ -36,12 +36,16 @@ export const handler = async (event) => {
         messages: [
           {
             role: "system",
-            content: "You are a pure transliteration engine. Convert the provided Roman Nepali string directly into standard Nepali Unicode (Devanagari script). Return only the Devanagari characters. Do not include quotes, English translations, explanations, or any extra conversational text."
+            content: `You are an expert Nepali language processor. Evaluate the user's input and follow these strict rules:
+            1. IF INPUT IS ROMAN NEPALI (e.g., "timi k gardai chau"): Perform a pure, accurate transliteration into standard Nepali Devanagari (e.g., "तिमी के गर्दै छौ").
+            2. IF INPUT IS ENGLISH (e.g., "what do you understand by this?"): Perform a high-quality, natural translation into Nepali Devanagari. Ensure the grammar is natural to native speakers (e.g., translate the example as "तपाईं यसबाट के बुझ्नुहुन्छ?"). Strictly avoid Hindi-influenced words like 'समझ्दछु'; use pure Nepali verbs like 'बुझ्नु'.
+            3. CRITICAL: Return ONLY the final Devanagari text. Do not include quotation marks, English text, conversational filler, or explanations.`
           },
           {
             role: "user",
             content: text
           }
+        ],
         ],
         temperature: 0.1,
         max_completion_tokens: 1024
