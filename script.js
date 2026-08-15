@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 timer = setTimeout(async () => {
     try {
-       const res = await fetch("https://romanintonepali.netlify.app/.netlify/functions/convert", { 
+       const res = await fetch("/.netlify/functions/convert", { 
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
