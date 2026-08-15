@@ -29,7 +29,7 @@ export const handler = async (event) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${process.env.GROQ_API_KEY}` 
+        "Authorization": `Bearer ${process.env.text_api}` 
       },
       body: JSON.stringify({
         model: "llama-3.3-70b-versatile",
