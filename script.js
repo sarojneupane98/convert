@@ -185,7 +185,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 timer = setTimeout(async () => {
     try {
-       const res = await fetch("/.netlify/functions/convert", { 
+        // Now pointing explicitly to your Netlify backend
+        const backendUrl = "https://romanintonepali.netlify.app/.netlify/functions/convert";
+
+        const res = await fetch(backendUrl, { 
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
