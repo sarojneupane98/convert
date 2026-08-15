@@ -185,8 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 timer = setTimeout(async () => {
     try {
-        // IMPORTANT: Replace 'YOUR-SITE-NAME' with your actual Netlify subdomain
-        const res = await fetch("https://YOUR-SITE-NAME.netlify.app/.netlify/functions/convert", { 
+       const res = await fetch("https://romanintonepali.netlify.app/.netlify/functions/convert", { 
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
