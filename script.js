@@ -37,7 +37,7 @@ function convertUnicodeToPreeti(unicodeText) {
     text = text.replace(/([क-ह])ि/g, 'l$1');
 
     // 2. Pre-process Ligatures BEFORE Halant operations
-    text = text.replace(/ङ्क/g, 'Í');   // ङ्क
+    text = text.replace(/ङ\u094Dक/g, 'Í');   // ङ्क
     text = text.replace(/ङ\u094Dग/g, 'Ë');   // ङ्ग
     text = text.replace(/ट\u094Dट/g, '§');   // ट्ट
     text = text.replace(/ठ\u094Dठ/g, '¶');   // ठ्ठ
